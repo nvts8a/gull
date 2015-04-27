@@ -3,7 +3,7 @@ import ajax from 'ic-ajax';
 
 export default Ember.Controller.extend({
   actions: {
-    createUser: function() {
+    createAndLoginUser: function() {
       this.transitionToRoute("home");      
     }
   }
