@@ -1,2 +1,7 @@
-Registration template
-{{outlet}}
+<div id="registration">
+  <h1>Registration Template</h1>
+  <form {{action "createUser" on="submit"}}>
+    {{input type="text" value=email placeholder="Email"}}
+    <button type="submit">Register</button>
+  </form>
+</div>
