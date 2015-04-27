@@ -1,7 +1,8 @@
 <div id="registration">
   <h1>Registration Template</h1>
-  <form {{action "createUser" on="submit"}}>
+  <form {{action "createAndLoginUser" on="submit"}}>
     {{input type="text" value=email placeholder="Email"}}
+    {{input type="password" value=password placeholder="Password"}}
     <button type="submit">Register</button>
   </form>
 </div>
