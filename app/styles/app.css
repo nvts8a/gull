@@ -1,3 +1,9 @@
+.centered-form {
+  display: block;
+  width: 10%;
+  margin: 0% 40%;
+}
+
 .map-canvas {
   width: 800px;
   height: 600px;

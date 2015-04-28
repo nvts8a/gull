@@ -1,9 +1,19 @@
-<div id="registration">
+<div id="registration" class="centered-form">
   <h1>Registration Template</h1>
-  <form {{action "createAndLoginUser" on="submit"}}>
-    {{input type="text" value=email placeholder="Email"}}
-    {{input type="password" value=password placeholder="Password"}}
-    <button type="submit">Register</button>
+  <form class="form-horizontal" {{action "createAndLoginUser" on="submit"}}>
+    <div class="form-group">
+      {{input type="text" value=email class="col-md-12" placeholder="Email"}}
+    </div>
+    <div class="form-group">
+      {{input type="text" value=firstName class="col-md-12" placeholder="*First Name"}}
+    </div>
+    <div class="form-group">
+      {{input type="text" value=lastName class="col-md-12" placeholder="*Last Name"}}
+    </div>
+    <div class="form-group">
+      {{input type="password" value=password class="col-md-12" placeholder="Password"}}
+    </div>
+    <button class="btn btn-default btn-lg btn-block" type="submit">Register</button>
   </form>
   {{#link-to "login"}}Login?{{/link-to}}
 </div>

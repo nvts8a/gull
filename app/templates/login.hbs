@@ -1,9 +1,13 @@
-<div id="login">
+<div id="login" class="centered-form">
   <h1>Login Template</h1>
-  <form {{action "loginUser" on="submit"}}>
-    {{input type="text" value=email placeholder="Email"}}
-    {{input type="password" value=password placeholder="Password"}}
-    <button type="submit">Login</button>
+  <form class="form-horizontal" {{action "loginUser" on="submit"}}>
+    <div class="form-group">
+      {{input type="text" value=email class="col-md-12" placeholder="Email"}}
+    </div>
+    <div class="form-group">
+      {{input type="password" value=password class="col-md-12" placeholder="Password"}}
+    </div>
+    <button class="btn btn-default btn-lg btn-block" type="submit">Login</button>
   </form>
   {{#link-to "registration"}}Register?{{/link-to}}
 </div>
