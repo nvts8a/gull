@@ -9,4 +9,5 @@ export default Router.map(function() {
   this.route('registration');
   this.route('home');
   this.route('login');
+  this.route('activity');
 });
