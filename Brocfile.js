@@ -26,4 +26,7 @@ app.import('vendor/bootstrap/fonts/glyphicons-halflings-regular.woff', {destDir:
 app.import('vendor/bootstrap/fonts/glyphicons-halflings-regular.woff2', {destDir: 'fonts'});
 app.import('vendor/bootstrap/js/bootstrap.js');
 
+app.import('bower_components/video.js/dist/video-js/video.js');
+app.import('bower_components/BigVideo.js/lib/bigvideo.js');
+
 module.exports = app.toTree();
