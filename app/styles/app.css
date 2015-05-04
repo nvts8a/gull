@@ -10,12 +10,26 @@ html, body, body > .ember-view {
   font-size: 32px;
 }
 
-.height-80 {
-  height: 80%; 
+#landing {
+  margin: 0% 25%; 
 }
 
-.google-maps {
+#landing > #login {
+  padding-top: 10%;
+  padding-right: 10%;
+}
+
+#landing > #registration {
+  padding-top: 10%;
+  padding-left: 10%;
+}
+
+.height-100 {
   height: 100%;
+}
+
+.height-80 {
+  height: 80%; 
 }
 
 .logo {
@@ -32,10 +46,4 @@ html, body, body > .ember-view {
 .map-canvas {
   width: 100%;
   height: 100%;
-}
-
-.centered-form {
-  display: block;
-  width: 10%;
-  margin: 0% 40%;
 }

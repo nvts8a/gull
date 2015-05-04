@@ -1,7 +1,7 @@
 import Ember from "ember";
 
 export default Ember.Component.extend({
-  classNames: ["google-maps"],
+  classNames: ["google-maps", "height-100"],
   
   insertMap: function() {
     var container = this.$(".map-canvas");
