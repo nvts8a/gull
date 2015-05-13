@@ -1,4 +1,4 @@
-import ajax from "ic-ajax";
+import UserService from "../services/user";
 import Ember from "ember";
 
 export default Ember.Controller.extend({
@@ -8,15 +8,12 @@ export default Ember.Controller.extend({
       this.transitionToRoute("home");      
     },
     createAndLoginUser: function() {
-      var self = this;
-      var user = { "user": this.getProperties("email", "password", "first_name", "last_name") };
-      ajax({ url: "larid/users", type: "POST", data: user })
-        .then(function(response) { setAccessToken(response.access_token) })
-        .then(self.send("transitionTo", "home"));
+      var data = this.getProperties("email", "password", "first_name", "last_name");
+      var transitionToHome = () => this.send("transitionTo", "home");
+
+      UserService.createUser(data)
+        .then(function(response) { localStorage.setItem("session:access_token", response.access_token) })
+        .then(transitionToHome);
     }
   }
 });
-
-var setAccessToken = function(token) {
-  localStorage.setItem("session:access_token", token);
-}
