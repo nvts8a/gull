@@ -4,8 +4,12 @@ import Ember from "ember";
 export default Ember.Controller.extend({
   actions: {
     loginUser: function() {
-      setSessionToken(this.getProperties("email"));
-      this.transitionToRoute("home");      
+      var data = this.getProperties("email", "password");
+      var transitionToHome = () => this.send("transitionTo", "home");
+
+      UserService.loginUser(data)
+        .then(function(response) { localStorage.setItem("session:access_token", response.access_token) })
+        .then(transitionToHome);
     },
     createAndLoginUser: function() {
       var data = this.getProperties("email", "password", "first_name", "last_name");
