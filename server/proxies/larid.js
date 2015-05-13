@@ -10,6 +10,6 @@ module.exports = function(app) {
   });
 
   app.use(proxyPath, function(req, res, next){
-    proxy.web(req, res, { target: 'http://localhost:3000' });
+    proxy.web(req, res, { target: 'http://localhost:3000/v1' });
   });
 };
