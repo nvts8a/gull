@@ -19,6 +19,7 @@ export default Ember.Component.extend({
     var markerInfoPairs = [{ "marker": marker, "infowindow": markerInfowindow }];
     bindInfowindows( map, markerInfoPairs );
 
+    Gull.set("map", map);
   }.on("didInsertElement")
 });
 
