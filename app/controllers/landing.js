@@ -1,6 +1,6 @@
 import {createUser} from "gull/services/user";
 import {loginUser} from "gull/services/user";
-import {setSession} from "gull/services/user";
+import {setSession} from "gull/services/session";
 import Ember from "ember";
 
 export default Ember.Controller.extend({

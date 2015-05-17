@@ -1,5 +1,5 @@
 import {createActivity} from "gull/services/activity";
-import {getSession} from "gull/services/user";
+import {getSession} from "gull/services/session";
 import Ember from "ember";
 
 export default Ember.Controller.extend({
