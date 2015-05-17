@@ -14,8 +14,7 @@ export default Ember.Component.extend({
     };
 
     var map = new google.maps.Map(container[0], options);
-    var markerInfoPairs = generateActivities( map );
-
+    generateActivities( map );
     Gull.set("map", map);
   }.on("didInsertElement")
 });
@@ -42,7 +41,7 @@ var generateMarkerInfoPair = function(map, activity) {
     var markerInfowindow = generateInfowindow( markerContent );
 
     return { "marker": marker, "infowindow": markerInfowindow };
-}
+};
 
 var generateMarker = function(map, markerPosition, options) {
   options = ( typeof options !== "undefined" ? options : {} );
@@ -79,4 +78,4 @@ var bindInfowindows = function(map, markerInfoPairs) {
       pair.infowindow.open(map, pair.marker);
     });
   });
-}
+};
