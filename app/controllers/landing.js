@@ -1,5 +1,7 @@
 import {createUser} from "gull/services/user";
+import {loginUser} from "gull/services/user";
 import {setSession} from "gull/services/user";
+import Ember from "ember";
 
 export default Ember.Controller.extend({
   actions: {
@@ -7,7 +9,7 @@ export default Ember.Controller.extend({
       var data = this.getProperties("email", "password");
       var transitionToHome = () => this.send("transitionTo", "home");
 
-      UserService.loginUser(data)
+      loginUser(data)
         .then(setSession)
         .then(transitionToHome);
     },

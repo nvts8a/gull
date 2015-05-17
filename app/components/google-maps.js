@@ -1,39 +1,56 @@
+import {getActivities} from "gull/services/activity";
+import {getSession} from "gull/services/user";
 import Ember from "ember";
 
 export default Ember.Component.extend({
   classNames: ["google-maps", "height-100"],
-  
   insertMap: function() {
     var container = this.$(".map-canvas");
+    var myPosition = new google.maps.LatLng( localStorage.getItem("geoposition:latitude"), localStorage.getItem("geoposition:longitude"));
     var options = {
-      center: getLatLong(),
+      center: myPosition,
       zoom: 17,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
+
     var map = new google.maps.Map(container[0], options);
-
-    var marker = generateMarker(map, getLatLong());
-    var markerContent = generateMarkerContent({ "heading": "Hello Sarah!", "body": "This is infowindow content right here." });
-    var markerInfowindow = generateInfowindow( markerContent );
-
-    var markerInfoPairs = [{ "marker": marker, "infowindow": markerInfowindow }];
-    bindInfowindows( map, markerInfoPairs );
+    var markerInfoPairs = generateActivities( map );
 
     Gull.set("map", map);
   }.on("didInsertElement")
 });
 
-var getLatLong = function() {
-  return new google.maps.LatLng( localStorage.getItem("geoposition:latitude"), localStorage.getItem("geoposition:longitude"));
+
+var generateActivities = function(map) {
+  var setActivityMarkers = function(activities) {
+    var markerInfoPairs = [];
+
+    activities.forEach(function(activity) {
+      markerInfoPairs.push( generateMarkerInfoPair(map, activity) );
+    });
+
+    bindInfowindows( map, markerInfoPairs );
+  };
+
+  getActivities(getSession()).then(setActivityMarkers);
 };
 
-var generateMarker = function(map, markerLatLong, options) {
+var generateMarkerInfoPair = function(map, activity) {
+    var position = new google.maps.LatLng( activity.latitude, activity.longitude );
+    var marker = generateMarker(map, position, {"title": activity.id});
+    var markerContent = generateMarkerContent({ "heading": "Heading", "body": "Body" });
+    var markerInfowindow = generateInfowindow( markerContent );
+
+    return { "marker": marker, "infowindow": markerInfowindow };
+}
+
+var generateMarker = function(map, markerPosition, options) {
   options = ( typeof options !== "undefined" ? options : {} );
 
   return new google.maps.Marker({
-    position: markerLatLong,
+    position: markerPosition,
     map: map,
-    title: options.title
+    title: options.title.toString()
   });
 };
 
