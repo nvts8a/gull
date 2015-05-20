@@ -6,5 +6,5 @@ export default Ember.Controller.extend({
     this.getGeolocation().then(this.setGeolocation().bind(this));
   },
   getGeolocation: () => getGeolocation(),
-  setGeolocation: () => function(response) { this.set("geolocation", response) }
+  setGeolocation: () => function(response) { this.set("geolocation", response); }
 });

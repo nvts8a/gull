@@ -7,6 +7,9 @@ export default Ember.Controller.extend({
     submitActivity: function() {
       var latLong = Gull.get("map").getCenter();
       createActivity(getSession(), { "latitude": latLong.lat(), "longitude": latLong.lng() });
+    },
+    transitionToGeolocation: function () {
+      this.send("transitionTo", "geolocation");
     }
   }
 });
