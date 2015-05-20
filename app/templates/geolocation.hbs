@@ -1,0 +1,24 @@
+<h1>Geolocation</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr><th>Weather</th><th/></tr>
+  </thead>
+  <tbody>
+    <tr><td>Temperature</td><td>{{geolocation.weather.currently.temperature}}</td></tr>
+    <tr><td>Cloud Cover</td><td>{{geolocation.weather.currently.cloudCover}}</td></tr>
+    <tr><td>Wind Speed</td> <td>{{geolocation.weather.currently.windSpeed}}</td></tr>
+    <tr><td>Visibility</td> <td>{{geolocation.weather.currently.visibility}}</td></tr>
+  </tbody>
+</table>
+
+<table class="table table-striped">
+  <thead>
+    <tr><th>Biodiversity</th><th>Latitude</th><th>Logitude</th></tr>
+  </thead>
+  <tbody>
+    {{#each geolocation.biodiversity.results}}
+    <tr><td>{{this.species}}</td><td>{{this.decimalLatitude}}</td><td>{{this.decimalLongitude}}</td></tr>
+    {{/each}}
+  </tbody>
+</table>

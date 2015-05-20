@@ -11,4 +11,5 @@ export default Router.map(function() {
   this.route("home");
   this.route("login");
   this.route("activity");
+  this.route('geolocation');
 });
