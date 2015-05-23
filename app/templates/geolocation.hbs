@@ -17,7 +17,7 @@
     <tr><th>Biodiversity</th><th>Latitude</th><th>Logitude</th></tr>
   </thead>
   <tbody>
-    {{#each biodiversity in geolocation.biodiversity.results}}
+    {{#each biodiversity in geolocation.biodiversity}}
     <tr><td>{{biodiversity.species}}</td><td>{{biodiversity.decimalLatitude}}</td><td>{{biodiversity.decimalLongitude}}</td></tr>
     {{/each}}
   </tbody>
